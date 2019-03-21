@@ -16,6 +16,6 @@ export function fetchData() {
 function setData(data) {
     return {
         type: FETCH_DATA_SUCCESS,
-        payload: data
+        payload: data.results
     };
 }

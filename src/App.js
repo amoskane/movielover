@@ -9,15 +9,16 @@ class App extends Component {
   }
 
   render() {
-
+    const { data } = this.props;
     return (
       <div className="App">
-        {/* <ul> */}
-            {/* {Object.keys(this.props.data).forEach(key => {
-              console.log(key)
-            })}; */}
-        {/* </ul> */}
-        {JSON.stringify(this.props.data)}
+        {data &&
+          data.map((movie, index) => (
+            <p key={index}>{movie.title}</p>
+          ))
+        }
+
+        {/* {JSON.stringify({data})} */}
       </div>
     );
   }
