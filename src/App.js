@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import { fetchData }  from './actions'; 
+import Slide from './Slide'; 
 
 class App extends Component {
   componentDidMount(){
@@ -14,18 +15,16 @@ class App extends Component {
       <div className="App">
         {data &&
           data.map((movie, index) => (
-            <p key={index}>{movie.title}</p>
+            <Slide title={movie.title} episode_id={movie.episode_id} />
           ))
         }
-
-        {/* {JSON.stringify({data})} */}
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  data: state.data
+  data: state.data,
 });
 
 const mapDispatchToProps = {
@@ -33,3 +32,4 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
